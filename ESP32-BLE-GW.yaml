@@ -53,7 +53,7 @@ dallas:
 sensor:
 # Wifi signal monitor
   - platform: wifi_signal
-    name: "WiFi Signal"
+    name: "ESP32-BLE-GW WiFi Signal"
     update_interval: 60s
 # Dallas temperature sensor
   - platform: dallas
