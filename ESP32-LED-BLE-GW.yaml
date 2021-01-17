@@ -1,5 +1,5 @@
 esphome:
-  name: esp32ledctl
+  name: esp32ledblegw
   platform: ESP32
   board: nodemcu-32s
 
@@ -7,12 +7,12 @@ wifi:
   ssid: "YOUR_WIFI_NET_NAME"
   password: "YOUR_WIFI_PASSWORD"
 
-# Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "esp32ledctl Hotspot"
-    password: "d-diot.com"
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+#  ap:
+#    ssid: "esp32ledblegw Hotspot"
+#    password: "d-diot.com"
 
-captive_portal:
+#captive_portal:
 
 # Enable logging
 logger:
@@ -27,6 +27,10 @@ globals:
     type: bool
     restore_value: no
     initial_value: 'true'
+
+
+# BLE config (see the log to find the MAC address of your BLE devices)
+esp32_ble_tracker:
 
 
 # Fan configuration
@@ -64,6 +68,10 @@ sensor:
       - below: 45
         then:
           - switch.turn_off: fan_1
+# BLE sensor    
+#  - platform: ble_rssi
+#    mac_address: XX:YY:ZZ:AA:BB:CC
+#    name: "Your device name"
 
 
 # Power suplly
@@ -256,6 +264,10 @@ light:
 
 
 binary_sensor:
+# BLE devices example
+#  - platform: ble_presence
+#    mac_address: XX:YY:ZZ:AA:BB:CC
+#    name: "Your device name"
 # Button
   - platform: gpio
     pin: GPIO34
