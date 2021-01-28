@@ -115,7 +115,7 @@ light:
   - platform: fastled_clockless
     chipset: WS2812B
     pin: GPIO17
-    num_leds: 60
+    num_leds: 24
     rgb_order: GRB
     name: "On board Lamp"
     id: "light_4"
@@ -206,7 +206,7 @@ light:
           lambda: |-
             int Cooling = 55;
             int Sparking = 110;
-            static byte heat[60];
+            static byte heat[24];
             int cooldown;
             
             // Step 1.  Cool down every cell a little
